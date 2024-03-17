@@ -7,7 +7,7 @@ header("Content-Type: application/json");
     header("Access-Control-Allow-Headers: Content-Type");
     header('Content-Type: application/json');
 
-    $mysqli = new mysqli('localhost', 'root', "", "todo");
+    $mysqli = new mysqli('localhost', 'root', "", "news database");
 
     if($mysqli->connection_error){
         die("Connection Error (" . $mysqli->connect_errno . ')' . $mysqli->connect_error);
@@ -53,6 +53,35 @@ header("Content-Type: application/json");
             $response["status"] = "Success";
         }else{
             $response["status"] = "Failed";
+        }
+
+        return $response;
+    }
+
+    function getAllNews(){
+        global $mysqli;
+        $query = $mysqli->prepare("SELECT * FROM news");
+        $query->execute();
+        $query->store_result();
+        $num_rows = $query->num_rows();
+
+        if($num_rows == 0) {
+            $response["status"] = "No news";
+        }else{
+            $news = [];
+            $query->bind_result( $type, $text);
+            while($query->fetch()){
+                $new = [
+                    'id' => $id,
+                    'type' => $type,
+                    'text' => $text
+                ];
+
+                $news[] = $new;
+            }
+
+            $response["status"] = "Success";
+            $response["news"] = $news;
         }
 
         return $response;
