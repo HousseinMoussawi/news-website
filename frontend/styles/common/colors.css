@@ -1,0 +1,15 @@
+.bg_primary {
+  background-color: rgb(102, 185, 212);
+}
+
+.bg_secondary{
+    background-color: #031B4D
+}
+
+.txt_white{
+    color:white;
+}
+
+.txt_primary{
+    color:rgb(7, 174, 230);
+}

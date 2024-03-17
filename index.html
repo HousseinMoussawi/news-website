@@ -2,22 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="./frontend/styles/pages/index.css">
+    <link rel="stylesheet" href="./frontend/styles/common/colors.css">
+    <link rel="stylesheet" href="./frontend/styles/common/utilities.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
 
-
-    <form id="news-form">
-        <input type="text" id="news-type" placeholder="type">
-        <input type="text" id="news-text" placeholder="text">
-        <button type="submit">add new!</button>
+<section class="container flex center column">
+    <form id="news-form" class="flex bg_secondary shadow news-form">
+        <input type="text" id="news-type" placeholder="type" class="news-type">
+        <input type="text" id="news-text" placeholder="text" class="news-text">
+        <button type="submit" class="flex center  txt_primary news-submit">add new!</button>
     </form>
-    <div id="news-div">
-
+    <div id="news-div" class=" flex column align-center news-div bg_secondary shadow">
     </div>
+</section>
     
-    <script src="jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./frontend/scripts/index.js"></script>
 </body>
 </html>

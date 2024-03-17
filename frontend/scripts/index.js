@@ -1,8 +1,9 @@
 
 
+
 const getAllNews = () => {
     $.ajax({
-        url: "http://localhost/news_website/backend/api.php",
+        url: "https://localhost/news_website/backend/api.php",
         method: "GET",
         dataType: "json",
         success: function(data) {
@@ -16,7 +17,7 @@ const getAllNews = () => {
 
 const displayNews = (data) => {
     $("#news-div").empty();
-    $.each(data.news, function(index, newsItem) {
+    $.each(data["news"], function(index, newsItem) {
         const newsDiv = $("<div></div>");
         const newsType = $("<p></p>").text(newsItem.type);
         const newsText = $("<p></p>").text(newsItem.text);
@@ -38,7 +39,7 @@ const addNew = () => {
     formData.append("type", $('#news-type').val());
 
     $.ajax({
-        url: "http://localhost/news_website/backend/api.php",
+        url: "https://localhost/news_website/backend/api.php",
         method: "POST",
         data: formData,
         processData: false,

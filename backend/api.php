@@ -9,7 +9,7 @@ header("Content-Type: application/json");
 
     $mysqli = new mysqli('localhost', 'root', "", "news database");
 
-    if($mysqli->connection_error){
+    if($mysqli->connect_error){
         die("Connection Error (" . $mysqli->connect_errno . ')' . $mysqli->connect_error);
     }
 
@@ -69,7 +69,7 @@ header("Content-Type: application/json");
             $response["status"] = "No news";
         }else{
             $news = [];
-            $query->bind_result( $type, $text);
+            $query->bind_result($id,$type,$text);
             while($query->fetch()){
                 $new = [
                     'id' => $id,

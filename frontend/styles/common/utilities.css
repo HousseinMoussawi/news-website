@@ -1,0 +1,20 @@
+.flex{
+    display: flex;
+}
+
+.center{
+    justify-content: center;
+    align-items: center;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.shadow{
+    box-shadow: 0 4px 8px black;
+}
+
+.column{
+    flex-direction: column;
+}
